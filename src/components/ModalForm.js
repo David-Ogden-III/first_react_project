@@ -1,7 +1,9 @@
 import { Input, FormGroup, Form } from 'reactstrap';
-//import { selectFocusByTitle } from './workoutFocus';
+import ModalOptions from './ModalOptions';
+import { selectAllFocusTitle } from './workoutFocus';
 
-const ModalForm = () => {
+const ModalForm = ({focus}) => {
+    const focuses = selectAllFocusTitle();
     
     return (
 
@@ -10,7 +12,11 @@ const ModalForm = () => {
                 <Input
                     id='workoutSelector'
                     type='select'>
-                    <option></option>
+                    {focuses.map((focus) => {
+                        return (
+                            <ModalOptions key={focus.id} focus={focus}/>
+                        );
+                    })}
                 </Input>
             </FormGroup>
             <FormGroup>

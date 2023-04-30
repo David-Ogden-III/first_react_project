@@ -13,8 +13,8 @@ const workoutFocus = [
     }
 ];
 
-export const SelectFocusByTitle = (title) => {
-    return workoutFocus.find((focus) => focus.title);
+export const selectAllFocusTitle = () => {
+    return workoutFocus;
 };
 
 export default workoutFocus;
