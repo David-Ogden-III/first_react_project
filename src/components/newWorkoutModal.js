@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import ModalForm from './ModalForm';
 
 const NewWorkoutModal = (args) => {
     const [modal, setModal] = useState(false);
@@ -14,9 +15,7 @@ const NewWorkoutModal = (args) => {
             <Modal isOpen={modal} toggle={toggle} {...args}>
                 <ModalHeader toggle={toggle}>Choose your focus</ModalHeader>
                 <ModalBody>
-                    Insert Form Here <br />
-                    Focus: Legs <br />
-                    Date: 04/29/23
+                    <ModalForm />
                 </ModalBody>
                 <ModalFooter>
                     <Button color="primary" onClick={toggle}>

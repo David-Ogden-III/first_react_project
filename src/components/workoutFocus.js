@@ -1,4 +1,4 @@
-export const workoutFocus = [
+const workoutFocus = [
     {
         id: 0,
         title: "Push"
@@ -12,3 +12,9 @@ export const workoutFocus = [
         title: "Legs"
     }
 ];
+
+export const SelectFocusByTitle = (title) => {
+    return workoutFocus.find((focus) => focus.title);
+};
+
+export default workoutFocus;
