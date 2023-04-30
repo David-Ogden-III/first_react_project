@@ -1,4 +1,5 @@
-import { Row, Col, CardHeader, Card, CardBody, CardTitle, CardText, Button } from 'reactstrap';
+import { Row, Col, CardHeader, Card, CardBody, CardTitle } from 'reactstrap';
+import NewWorkoutModal from './newWorkoutModal';
 
 const NewWorkoutCard = () => {
     return (
@@ -7,11 +8,11 @@ const NewWorkoutCard = () => {
                     <Card>
                         <CardHeader>
                             <CardTitle className='text-center'>
-                                Choose your workout
+                                Create New Workout
                             </CardTitle>
                         </CardHeader>
                         <CardBody className='mx-auto'>
-                            <Button color='primary'>Create Workout</Button>
+                            <NewWorkoutModal />
                         </CardBody>
                     </Card>
                 </Col>
