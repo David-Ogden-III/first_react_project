@@ -9,8 +9,8 @@ const NewWorkoutModal = (args) => {
 
     return (
         <div>
-            <Button color="primary" onClick={toggle}>
-                New
+            <Button color="secondary" size='sm' onClick={toggle}>
+                Add New Workout
             </Button>
             <Modal isOpen={modal} toggle={toggle} {...args}>
                 <ModalHeader toggle={toggle}>Choose your focus</ModalHeader>
@@ -18,8 +18,8 @@ const NewWorkoutModal = (args) => {
                     <ModalForm />
                 </ModalBody>
                 <ModalFooter>
-                    <Button color="primary" onClick={toggle}>
-                        Add
+                    <Button color="primary" type='submit' value='Submit' onClick={toggle}>
+                        Create
                     </Button>
                 </ModalFooter>
             </Modal>

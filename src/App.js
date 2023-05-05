@@ -1,12 +1,16 @@
 import './App.css';
 import { Container } from 'reactstrap';
-import NewWorkoutCard from './components/newWorkoutCard';
+import { Header } from './components/Header';
 
 function App() {
   return (
+    <div className='App'>
+    <Header />
     <Container>
-      <NewWorkoutCard />
-    </Container >
+    
+    </Container>
+    </div>
+    
   );
 };
 
