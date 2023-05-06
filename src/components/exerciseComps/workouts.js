@@ -1,7 +1,7 @@
 export const workouts = [
     {
         id: 0,
-        name: 'Bench Press'
+        name: 'Select...'
     },
     {
         id: 1,
@@ -22,6 +22,10 @@ export const workouts = [
     {
         id: 5,
         name: 'Leg Extension'
+    },
+    {
+        id: 6,
+        name: 'Bench Press'
     }
 ];
 

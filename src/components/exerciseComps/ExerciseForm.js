@@ -18,10 +18,11 @@ const ExerciseForm = ({ exercise }) => {
         console.log(exerciseData);
         setModalOpen(false)
     };
+
     return (
         <>
             <Button outline onClick={() => setModalOpen(true)}>
-                View Your Workout
+                Add New Workout
             </Button>
             <Modal isOpen={modalOpen}>
                 <ModalHeader toggle={() => setModalOpen(false)}>
@@ -44,10 +45,10 @@ const ExerciseForm = ({ exercise }) => {
                                     className='form-control'
                                 >
                                     {exercises.map((exercise) => {
-                        return (
-                            <ExerciseOptions key={exercise.id} exercise={exercise}/>
-                        );
-                    })}
+                                        return (
+                                            <ExerciseOptions key={exercise.id} exercise={exercise}/>
+                                        );
+                                    })}
                                 </Field>
                             </FormGroup>
                             <FormGroup>

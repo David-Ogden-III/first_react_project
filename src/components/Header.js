@@ -1,5 +1,5 @@
 import { Navbar, NavbarBrand } from 'reactstrap';
-import NewWorkoutModal from './focusComps/newWorkoutModal';
+import ModalForm from './focusComps/ModalForm';
 
 export const Header = () => {
     return (
@@ -7,7 +7,7 @@ export const Header = () => {
             <NavbarBrand href='/'>
                 Workout Tracker
             </NavbarBrand>
-            <NewWorkoutModal className='ms-auto' />
+            <ModalForm className='ms-auto' />
         </Navbar>
     );
 };
