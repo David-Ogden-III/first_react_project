@@ -1,5 +1,5 @@
 import { Navbar, NavbarBrand } from 'reactstrap';
-import NewWorkoutModal from './newWorkoutModal';
+import NewWorkoutModal from './focusComps/newWorkoutModal';
 
 export const Header = () => {
     return (

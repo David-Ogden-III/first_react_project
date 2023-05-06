@@ -24,3 +24,7 @@ export const workouts = [
         name: 'Leg Extension'
     }
 ];
+
+export const selectAllExerciseName = () => {
+    return workouts;
+};
