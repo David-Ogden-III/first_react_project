@@ -1,13 +1,20 @@
 import { useState } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, FormGroup } from 'reactstrap'
 import { Formik, Field, Form } from 'formik';
-import ModalOptions from './ModalOptions';
 import { selectAllFocusTitle } from './workoutFocus';
 
 const ModalForm = ({ focus }) => {
     const [modalOpen, setModalOpen] = useState(false);
 
     const focuses = selectAllFocusTitle();
+
+    const ModalOptions = ({focus}) => {
+        const { title } = focus;
+    
+        return (
+            <option>{title}</option>
+        );
+    };
 
     const handleSubmit = (values) => {
         const focusData = {
@@ -57,7 +64,7 @@ const ModalForm = ({ focus }) => {
                                 />
                             </FormGroup>
                             <Button type='submit' color='dark'>
-                                Save
+                                Cre
                             </Button>
                         </Form>
                     </Formik>

@@ -1,13 +1,20 @@
 import { useState } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, FormGroup, Row, Col } from 'reactstrap'
 import { Formik, Field, Form } from 'formik';
-import ExerciseOptions from './ExerciseOptions';
 import { selectAllExerciseName } from './workouts';
 
 const ExerciseForm = ({ exercise }) => {
     const [modalOpen, setModalOpen] = useState(false);
 
     const exercises = selectAllExerciseName();
+
+    const ExerciseOptions = ({exercise}) => {
+        const { name } = exercise;
+    
+        return (
+            <option>{name}</option>
+        );
+    };
 
     const handleSubmit = (values) => {
         const exerciseData = {
