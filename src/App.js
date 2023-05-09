@@ -1,17 +1,28 @@
-import './App.css';
-import { Container } from 'reactstrap';
 import { Header } from './components/Header';
-import ExerciseCard from './components/exerciseComps/ExerciseCard';
+import { useState } from 'react';
+import ModalForm from './components/focusComps/ModalForm'
+import AddExerciseCard from './components/addExerciseCard'
+import { Container } from 'reactstrap';
+
+let nextId = 10;
 
 function App() {
+  const [workoutList, setWorkoutList] = useState([{ id: 0, focus: '', date: '' }])
+
+  const addTitle = (newTitleData) => {
+    const newTitle = { id: nextId++, ...newTitleData }
+    setWorkoutList([...workoutList, newTitle])
+  }
+
   return (
-    <div className='App'>
-    <Header />
-    <Container>
-    <ExerciseCard />
-    </Container>
+    <div>
+      <Header />
+      <Container>
+      <ModalForm onSubmit={addTitle} />
+      <AddExerciseCard titles={workoutList} />
+      </Container>
     </div>
-    
+
   );
 };
 

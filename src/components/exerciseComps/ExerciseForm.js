@@ -1,44 +1,35 @@
 import { useState } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, FormGroup, Row, Col } from 'reactstrap'
 import { Formik, Field, Form } from 'formik';
-import { selectAllExerciseName } from './workouts';
 
-const ExerciseForm = ({ exercise }) => {
+
+function ExerciseForm({ onSubmit }, { exercises }) {
     const [modalOpen, setModalOpen] = useState(false);
 
-    const exercises = selectAllExerciseName();
-
-    const ExerciseOptions = ({exercise}) => {
-        const { name } = exercise;
-    
-        return (
-            <option>{name}</option>
-        );
-    };
-
     const handleSubmit = (values) => {
-        const exerciseData = {
+        const newExercise = {
             lift: values.lift,
             weight: values.weight,
             reps: values.reps
         };
-        console.log(exerciseData);
+        onSubmit(newExercise);
         setModalOpen(false)
+        console.log(newExercise);
     };
 
     return (
         <>
             <Button outline onClick={() => setModalOpen(true)}>
-                Add New Workout
+                View Workout
             </Button>
             <Modal isOpen={modalOpen}>
                 <ModalHeader toggle={() => setModalOpen(false)}>
-                    Modal Header
+                    
                 </ModalHeader>
                 <ModalBody>
                     <Formik
                         initialValues={{
-                            lift: '',
+                            lift: 'Select Exercise',
                             weight: '',
                             reps: ''
                         }}
@@ -51,11 +42,10 @@ const ExerciseForm = ({ exercise }) => {
                                     as='select'
                                     className='form-control'
                                 >
-                                    {exercises.map((exercise) => {
-                                        return (
-                                            <ExerciseOptions key={exercise.id} exercise={exercise}/>
-                                        );
-                                    })}
+                                    <option value='select'>Select Exercise...</option>
+                                    <option value='BenchPress'>Bench Press</option>
+                                    <option value='Squat'>Squat</option>
+                                    <option value='Row'>Row</option>
                                 </Field>
                             </FormGroup>
                             <FormGroup>
@@ -74,6 +64,12 @@ const ExerciseForm = ({ exercise }) => {
                                             className='form-control'
                                             placeholder='Reps'
                                         />
+                                    </Col>
+                                    <Col>
+                                    <Button size='md' type='submit'>Add</Button>
+                                    </Col>
+                                    <Col>
+                                    <Button size='md' type='submit'>Edit</Button>
                                     </Col>
                                 </Row>
                             </FormGroup>

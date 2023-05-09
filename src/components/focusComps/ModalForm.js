@@ -1,29 +1,19 @@
 import { useState } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, FormGroup } from 'reactstrap'
 import { Formik, Field, Form } from 'formik';
-import { selectAllFocusTitle } from './workoutFocus';
 
-const ModalForm = ({ focus }) => {
-    const [modalOpen, setModalOpen] = useState(false);
-
-    const focuses = selectAllFocusTitle();
-
-    const ModalOptions = ({focus}) => {
-        const { title } = focus;
-    
-        return (
-            <option>{title}</option>
-        );
-    };
+function ModalForm({ onSubmit }) {
+    const [modalOpen, setModalOpen] = useState(false);;
 
     const handleSubmit = (values) => {
-        const focusData = {
+        const newTitle = {
             focus: values.focus,
-            date: values.date,
-        };
-        console.log(focusData);
+            date: values.date
+        }
+        onSubmit(newTitle);
         setModalOpen(false)
-    };
+        console.log(newTitle)
+    }
 
     return (
         <>
@@ -37,7 +27,7 @@ const ModalForm = ({ focus }) => {
                 <ModalBody>
                     <Formik
                         initialValues={{
-                            focus: '',
+                            focus: 'Push',
                             date: ''
                         }}
                         onSubmit={handleSubmit}
@@ -49,22 +39,20 @@ const ModalForm = ({ focus }) => {
                                     as='select'
                                     className='form-control'
                                 >
-                                    {focuses.map((focus) => {
-                                        return (
-                                            <ModalOptions key={focus.id} focus={focus} />
-                                        );
-                                    })}
+                                    <option value='Push'>Push</option>
+                                    <option value='Pull'>Pull</option>
+                                    <option value='Legs'>Legs</option>
                                 </Field>
                             </FormGroup>
                             <FormGroup>
                                 <Field
                                     name='date'
                                     className='form-control'
-                                    placeholder='Select date'
+                                    type='date'
                                 />
                             </FormGroup>
                             <Button type='submit' color='dark'>
-                                Cre
+                                Create
                             </Button>
                         </Form>
                     </Formik>
