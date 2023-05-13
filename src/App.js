@@ -1,6 +1,5 @@
 import { Header } from './components/Header';
 import { useState } from 'react';
-import ModalForm from './components/focusComps/ModalForm'
 import AddExerciseCard from './components/addExerciseCard'
 import { Container } from 'reactstrap';
 
@@ -16,10 +15,9 @@ function App() {
 
   return (
     <div>
-      <Header />
+      <Header onSubmit={addTitle}/>
       <Container>
-      <ModalForm onSubmit={addTitle} />
-      <AddExerciseCard titles={workoutList} />
+      <AddExerciseCard workoutList={workoutList} />
       </Container>
     </div>
 

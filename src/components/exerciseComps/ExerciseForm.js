@@ -3,7 +3,7 @@ import { Button, Modal, ModalHeader, ModalBody, FormGroup, Row, Col } from 'reac
 import { Formik, Field, Form } from 'formik';
 
 
-function ExerciseForm({ onSubmit }, { exercises }) {
+function ExerciseForm({ onSubmit, exerciseList }) {
     const [modalOpen, setModalOpen] = useState(false);
 
     const handleSubmit = (values) => {
@@ -24,7 +24,6 @@ function ExerciseForm({ onSubmit }, { exercises }) {
             </Button>
             <Modal isOpen={modalOpen}>
                 <ModalHeader toggle={() => setModalOpen(false)}>
-                    
                 </ModalHeader>
                 <ModalBody>
                     <Formik
@@ -34,6 +33,7 @@ function ExerciseForm({ onSubmit }, { exercises }) {
                             reps: ''
                         }}
                         onSubmit={handleSubmit}
+                        
                     >
                         <Form>
                             <FormGroup>
@@ -43,7 +43,7 @@ function ExerciseForm({ onSubmit }, { exercises }) {
                                     className='form-control'
                                 >
                                     <option value='select'>Select Exercise...</option>
-                                    <option value='BenchPress'>Bench Press</option>
+                                    <option value='Bench Press'>Bench Press</option>
                                     <option value='Squat'>Squat</option>
                                     <option value='Row'>Row</option>
                                 </Field>
@@ -73,11 +73,9 @@ function ExerciseForm({ onSubmit }, { exercises }) {
                                     </Col>
                                 </Row>
                             </FormGroup>
-                            <Button type='submit' color='dark'>
-                                Save
-                            </Button>
                         </Form>
                     </Formik>
+                    
                 </ModalBody>
             </Modal>
         </>
