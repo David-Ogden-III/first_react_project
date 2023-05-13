@@ -1,16 +1,7 @@
 import { Row, Col, CardHeader, Card, CardBody, CardTitle } from 'reactstrap';
 import ExerciseForm from './exerciseComps/ExerciseForm';
-import { useState } from 'react';
 
-let superNextId = 100
-
-export default function AddExerciseCard({ workoutList }) {
-    const [exerciseList, setExerciseList] = useState([{ id: 0, lift: '', weight: '', reps: '' }])
-
-    const addExercise = (newExerciseData) => {
-        const newExercise = { id: superNextId++, ...newExerciseData }
-        setExerciseList([...exerciseList, newExercise])
-    }
+export default function AddExerciseCard({ workoutList, onSubmit }) {
 
     return (
         <Row className='mt-3'>
@@ -23,12 +14,11 @@ export default function AddExerciseCard({ workoutList }) {
                             </CardTitle>
                         </CardHeader>
                         <CardBody className='mx-auto'>
-                            <ExerciseForm onSubmit={addExercise} />
-                            
+                            <ExerciseForm onSubmit={onSubmit} workoutList={workoutList} />
                         </CardBody>
                     </Card>
                 </Col>
             )}
         </Row>
     )
-}
+};

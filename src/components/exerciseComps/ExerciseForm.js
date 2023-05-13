@@ -3,7 +3,7 @@ import { Button, Modal, ModalHeader, ModalBody, FormGroup, Row, Col } from 'reac
 import { Formik, Field, Form } from 'formik';
 
 
-function ExerciseForm({ onSubmit, exerciseList }) {
+function ExerciseForm({ onSubmit, workoutList }) {
     const [modalOpen, setModalOpen] = useState(false);
 
     const handleSubmit = (values) => {
@@ -33,7 +33,7 @@ function ExerciseForm({ onSubmit, exerciseList }) {
                             reps: ''
                         }}
                         onSubmit={handleSubmit}
-                        
+
                     >
                         <Form>
                             <FormGroup>
@@ -66,16 +66,16 @@ function ExerciseForm({ onSubmit, exerciseList }) {
                                         />
                                     </Col>
                                     <Col>
-                                    <Button size='md' type='submit'>Add</Button>
+                                        <Button size='md' type='submit'>Add</Button>
                                     </Col>
                                     <Col>
-                                    <Button size='md' type='submit'>Edit</Button>
+                                        <Button size='md' type='submit'>Edit</Button>
                                     </Col>
                                 </Row>
                             </FormGroup>
                         </Form>
                     </Formik>
-                    
+
                 </ModalBody>
             </Modal>
         </>
