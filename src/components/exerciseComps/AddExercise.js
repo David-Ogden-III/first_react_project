@@ -1,7 +1,6 @@
-import { Col, Row } from "reactstrap";
+import { Col, Row, Button } from "reactstrap";
 
-const AddExercise = ({ exerciseList }) => {
-
+const AddExercise = ({ exerciseList, workoutList }) => {
     return (
         <>
             <Row>
@@ -27,7 +26,11 @@ const AddExercise = ({ exerciseList }) => {
                     <Col xs='2'>
                         {exercise.reps}
                     </Col>
+                    <Col>
+                        <Button size='sm' type='submit' className="my-1">Edit</Button>
+                    </Col>
                 </Row>
+                
             )
             }
         </>

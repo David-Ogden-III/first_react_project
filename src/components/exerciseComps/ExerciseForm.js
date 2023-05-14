@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, FormGroup, Row, Col } from 'reactstrap'
-import { Formik, Field, Form } from 'formik';
+import { Formik, Field, Form, ErrorMessage } from 'formik';
 import AddExercise from './AddExercise';
+import { exerciseFormValidation } from './ExerciseFormValidation';
 
 
-function ExerciseForm({ onSubmit, exerciseList }) {
+function ExerciseForm({ onSubmit, exerciseList, workoutList }) {
     const [modalOpen, setModalOpen] = useState(false);
 
-    const handleSubmit = (values) => {
+    const handleSubmit = (values, { resetForm }) => {
         const newExercise = {
             lift: values.lift,
             weight: values.weight,
@@ -15,6 +16,7 @@ function ExerciseForm({ onSubmit, exerciseList }) {
         };
         onSubmit(newExercise);
         console.log(newExercise);
+        resetForm();
     };
 
     return (
@@ -26,7 +28,7 @@ function ExerciseForm({ onSubmit, exerciseList }) {
                 <ModalHeader toggle={() => setModalOpen(false)}>
                 </ModalHeader>
                 <ModalBody>
-                    
+
                     <Formik
                         initialValues={{
                             lift: 'Select Exercise',
@@ -34,7 +36,7 @@ function ExerciseForm({ onSubmit, exerciseList }) {
                             reps: ''
                         }}
                         onSubmit={handleSubmit}
-
+                        validate={exerciseFormValidation}
                     >
                         <Form>
                             <FormGroup>
@@ -48,6 +50,9 @@ function ExerciseForm({ onSubmit, exerciseList }) {
                                     <option value='Squat'>Squat</option>
                                     <option value='Row'>Row</option>
                                 </Field>
+                                <ErrorMessage name='lift'>
+                                    {(msg) => <p className='text-danger'>{msg}</p>}
+                                </ErrorMessage>
                             </FormGroup>
                             <FormGroup>
                                 <Row>
@@ -57,6 +62,9 @@ function ExerciseForm({ onSubmit, exerciseList }) {
                                             className='form-control'
                                             placeholder='Weight'
                                         />
+                                        <ErrorMessage name='weight'>
+                                            {(msg) => <p className='text-danger'>{msg}</p>}
+                                        </ErrorMessage>
                                     </Col>
                                     {'x'}
                                     <Col sm='4'>
@@ -65,18 +73,18 @@ function ExerciseForm({ onSubmit, exerciseList }) {
                                             className='form-control'
                                             placeholder='Reps'
                                         />
+                                        <ErrorMessage name='reps'>
+                                            {(msg) => <p className='text-danger'>{msg}</p>}
+                                        </ErrorMessage>
                                     </Col>
                                     <Col>
                                         <Button size='md' type='submit'>Add</Button>
-                                    </Col>
-                                    <Col>
-                                        <Button size='md' type='submit'>Edit</Button>
                                     </Col>
                                 </Row>
                             </FormGroup>
                         </Form>
                     </Formik>
-                    <AddExercise exerciseList={exerciseList} />
+                    <AddExercise exerciseList={exerciseList} workoutList={workoutList} />
                 </ModalBody>
             </Modal>
         </>
