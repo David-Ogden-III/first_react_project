@@ -17,7 +17,7 @@ function ModalForm({ onSubmit }) {
 
     return (
         <>
-            <Button outline onClick={() => setModalOpen(true)}>
+            <Button outline onClick={() => setModalOpen(true)} >
                 Create New Workout
             </Button>
             <Modal isOpen={modalOpen}>

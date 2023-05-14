@@ -25,10 +25,9 @@ function App() {
     <div>
       <Header onSubmit={addTitle} />
       <Container>
-        <AddExerciseCard workoutList={workoutList} onSubmit={addExercise} />
+        <AddExerciseCard workoutList={workoutList} onSubmit={addExercise} exerciseList={exerciseList} />
       </Container>
     </div>
-
   );
 };
 

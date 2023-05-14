@@ -1,7 +1,7 @@
 import { Row, Col, CardHeader, Card, CardBody, CardTitle } from 'reactstrap';
 import ExerciseForm from './exerciseComps/ExerciseForm';
 
-export default function AddExerciseCard({ workoutList, onSubmit }) {
+export default function AddExerciseCard({ workoutList, onSubmit, exerciseList }) {
 
     return (
         <Row className='mt-3'>
@@ -14,7 +14,7 @@ export default function AddExerciseCard({ workoutList, onSubmit }) {
                             </CardTitle>
                         </CardHeader>
                         <CardBody className='mx-auto'>
-                            <ExerciseForm onSubmit={onSubmit} workoutList={workoutList} />
+                            <ExerciseForm onSubmit={onSubmit} workoutList={workoutList} exerciseList={exerciseList} />
                         </CardBody>
                     </Card>
                 </Col>

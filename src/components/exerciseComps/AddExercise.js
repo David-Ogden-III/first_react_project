@@ -1,13 +1,36 @@
+import { Col, Row } from "reactstrap";
+
 const AddExercise = ({ exerciseList }) => {
 
     return (
-        <div>
-            {
-                exerciseList.map(exercise =>
-                    <p key={exercise.id}>{exercise.lift}<br />{exercise.weight}x{exercise.reps}</p>
-                )
+        <>
+            <Row>
+                <Col xs='3'>
+                    Exercise
+                </Col>
+                <Col xs='2'>
+                    Weight
+                </Col>
+                <Col xs='2'>
+                    Reps
+                </Col>
+                <hr />
+            </Row>
+            {exerciseList.map(exercise =>
+                <Row key={exercise.id}>
+                    <Col xs='3'>
+                        {exercise.lift}
+                    </Col>
+                    <Col xs='2'>
+                        {exercise.weight}
+                    </Col>
+                    <Col xs='2'>
+                        {exercise.reps}
+                    </Col>
+                </Row>
+            )
             }
-        </div>
+        </>
     )
 };
 

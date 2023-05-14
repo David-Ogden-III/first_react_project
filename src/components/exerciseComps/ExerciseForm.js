@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, FormGroup, Row, Col } from 'reactstrap'
 import { Formik, Field, Form } from 'formik';
+import AddExercise from './AddExercise';
 
 
-function ExerciseForm({ onSubmit, workoutList }) {
+function ExerciseForm({ onSubmit, exerciseList }) {
     const [modalOpen, setModalOpen] = useState(false);
 
     const handleSubmit = (values) => {
@@ -13,7 +14,6 @@ function ExerciseForm({ onSubmit, workoutList }) {
             reps: values.reps
         };
         onSubmit(newExercise);
-        setModalOpen(false)
         console.log(newExercise);
     };
 
@@ -26,6 +26,7 @@ function ExerciseForm({ onSubmit, workoutList }) {
                 <ModalHeader toggle={() => setModalOpen(false)}>
                 </ModalHeader>
                 <ModalBody>
+                    
                     <Formik
                         initialValues={{
                             lift: 'Select Exercise',
@@ -75,7 +76,7 @@ function ExerciseForm({ onSubmit, workoutList }) {
                             </FormGroup>
                         </Form>
                     </Formik>
-
+                    <AddExercise exerciseList={exerciseList} />
                 </ModalBody>
             </Modal>
         </>
