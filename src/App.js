@@ -25,7 +25,7 @@ function App() {
     <div>
       <Header onSubmit={addTitle} />
       <Container>
-        <AddExerciseCard workoutList={workoutList} onSubmit={addExercise} exerciseList={exerciseList} />
+        <AddExerciseCard workoutList={workoutList} addExercise={addExercise} exerciseList={exerciseList} onSubmit={addTitle} />
       </Container>
     </div>
   );

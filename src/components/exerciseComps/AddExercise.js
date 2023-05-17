@@ -17,6 +17,8 @@ const AddExercise = ({ exerciseList, workoutList }) => {
             </Row>
             {exerciseList.map(exercise =>
                 <Row key={exercise.id}>
+                    { exercise.id !==0 ?
+                    <>
                     <Col xs='3'>
                         {exercise.lift}
                     </Col>
@@ -29,8 +31,10 @@ const AddExercise = ({ exerciseList, workoutList }) => {
                     <Col>
                         <Button size='sm' type='submit' className="my-1">Edit</Button>
                     </Col>
+                    </>
+                   : null }
                 </Row>
-                
+
             )
             }
         </>
