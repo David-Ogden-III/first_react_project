@@ -5,7 +5,7 @@ import AddExercise from './AddExercise';
 import { exerciseFormValidation } from './ExerciseFormValidation';
 
 
-function ExerciseForm({ onSubmit, exerciseList, workoutList }) {
+function ExerciseForm({ onSubmit, exerciseList, workoutList, cardId }) {
     const [modalOpen, setModalOpen] = useState(false);
 
     const handleSubmit = (values, { resetForm }) => {
@@ -22,10 +22,11 @@ function ExerciseForm({ onSubmit, exerciseList, workoutList }) {
     return (
         <>
             <Button outline onClick={() => setModalOpen(true)}>
-                View Workout
+                View<br />Workout
             </Button>
             <Modal isOpen={modalOpen}>
                 <ModalHeader toggle={() => setModalOpen(false)}>
+                    {workoutList.focus}<br />{workoutList.date}
                 </ModalHeader>
                 <ModalBody>
 
@@ -84,7 +85,19 @@ function ExerciseForm({ onSubmit, exerciseList, workoutList }) {
                             </FormGroup>
                         </Form>
                     </Formik>
-                    <AddExercise exerciseList={exerciseList} workoutList={workoutList} />
+                    <Row>
+                <Col xs='3'>
+                    Exercise
+                </Col>
+                <Col xs='2'>
+                    Weight
+                </Col>
+                <Col xs='2'>
+                    Reps
+                </Col>
+                <hr />
+            </Row>
+                    <AddExercise exerciseList={exerciseList} workoutList={workoutList} cardId={cardId} />
                 </ModalBody>
             </Modal>
         </>

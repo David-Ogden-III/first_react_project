@@ -1,41 +1,37 @@
 import { Col, Row, Button } from "reactstrap";
 
-const AddExercise = ({ exerciseList, workoutList }) => {
+const AddExercise = ({ exerciseList, cardId }) => {
+    const pleaseWork = exerciseList.filter(
+        exercise => exercise.cardId === cardId
+    );    
+
+    if (pleaseWork.length === 0) {
+        return <p>No Exercises yet</p>
+    }
+    
     return (
         <>
-            <Row>
-                <Col xs='3'>
-                    Exercise
-                </Col>
-                <Col xs='2'>
-                    Weight
-                </Col>
-                <Col xs='2'>
-                    Reps
-                </Col>
-                <hr />
-            </Row>
-            {exerciseList.map(exercise =>
+            {pleaseWork.map(exercise => (
                 <Row key={exercise.id}>
-                    { exercise.id !==0 ?
-                    <>
-                    <Col xs='3'>
-                        {exercise.lift}
-                    </Col>
-                    <Col xs='2'>
-                        {exercise.weight}
-                    </Col>
-                    <Col xs='2'>
-                        {exercise.reps}
-                    </Col>
-                    <Col>
-                        <Button size='sm' type='submit' className="my-1">Edit</Button>
-                    </Col>
-                    </>
-                   : null }
+                    {exercise.id !== 0 ?
+                        <>
+                            <Col xs='3'>
+                                {exercise.lift}
+                            </Col>
+                            <Col xs='2'>
+                                {exercise.weight}
+                            </Col>
+                            <Col xs='2'>
+                                {exercise.reps}
+                            </Col>
+                            <Col>
+                                <Button size='sm' type='submit' className="my-1">Edit</Button>
+                            </Col>
+                        </>
+                        : null}
                 </Row>
 
-            )
+            ))
             }
         </>
     )

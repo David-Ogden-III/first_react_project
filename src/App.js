@@ -1,7 +1,7 @@
 import { Header } from './components/Header';
 import { useState } from 'react';
 import AddExerciseCard from './components/addExerciseCard'
-import { Container } from 'reactstrap';
+import { Container, Row } from 'reactstrap';
 
 let nextId = 10;
 let superNextId = 100
@@ -25,8 +25,12 @@ function App() {
     <div>
       <Header onSubmit={addTitle} />
       <Container>
-        <AddExerciseCard workoutList={workoutList} addExercise={addExercise} exerciseList={exerciseList} onSubmit={addTitle} />
-      </Container>
+        <Row>
+        {workoutList.map(workout => 
+        <AddExerciseCard key={workout.id} workoutList={workout} cardId={workout.id} addExercise={addExercise} exerciseList={exerciseList} onSubmit={addTitle} />
+        )}
+        </Row>
+        </Container>
     </div>
   );
 };
