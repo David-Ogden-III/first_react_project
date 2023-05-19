@@ -1,13 +1,9 @@
 import { Col, Row, Button } from "reactstrap";
 
-const AddExercise = ({ exerciseList, cardId }) => {
+const AddExercise = ({ exerciseList, cardId }) => {    
     const pleaseWork = exerciseList.filter(
         exercise => exercise.cardId === cardId
-    );    
-
-    if (pleaseWork.length === 0) {
-        return <p>No Exercises yet</p>
-    }
+    );
     
     return (
         <>
