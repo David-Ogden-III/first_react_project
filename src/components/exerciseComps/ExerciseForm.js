@@ -12,7 +12,8 @@ function ExerciseForm({ onSubmit, exerciseList, workoutList, cardId }) {
         const newExercise = {
             lift: values.lift,
             weight: values.weight,
-            reps: values.reps
+            reps: values.reps,
+            cardId: cardId
         };
         onSubmit(newExercise);
         console.log(newExercise);
