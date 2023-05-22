@@ -1,6 +1,6 @@
 import { Col, CardHeader, Card, CardBody, CardTitle } from 'reactstrap';
-import ExerciseForm from './exerciseComps/ExerciseForm';
 import ModalForm from './focusComps/ModalForm';
+import ExerciseModal from './exerciseComps/ExerciseModal';
 
 export default function AddExerciseCard({ workoutList, addExercise, exerciseList, onSubmit, cardId }) {
 
@@ -16,7 +16,7 @@ export default function AddExerciseCard({ workoutList, addExercise, exerciseList
                                 </CardTitle>
                             </CardHeader>
                             <CardBody className='mx-auto'>
-                                <ExerciseForm onSubmit={addExercise} workoutList={workoutList} exerciseList={exerciseList} cardId={cardId} />
+                                <ExerciseModal onSubmit={addExercise} workoutList={workoutList} exerciseList={exerciseList} cardId={cardId} />
                             </CardBody>
                         </Card>
                         : <Card>
