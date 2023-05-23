@@ -20,6 +20,10 @@ function App() {
     setExerciseList([...exerciseList, newExercise])
   }
 
+  const deleteExercise = (idToDelete) => {
+        setExerciseList(exerciseList.filter(exercise => exercise.id !== idToDelete))
+  }
+
 
   return (
     <div>
@@ -27,7 +31,7 @@ function App() {
       <Container>
         <Row>
         {workoutList.map(workout => 
-        <AddExerciseCard key={workout.id} workoutList={workout} cardId={workout.id} addExercise={addExercise} exerciseList={exerciseList} onSubmit={addTitle} />
+        <AddExerciseCard key={workout.id} workoutList={workout} cardId={workout.id} addExercise={addExercise} exerciseList={exerciseList} onSubmit={addTitle} deleteExercise={deleteExercise} />
         )}
         </Row>
         </Container>

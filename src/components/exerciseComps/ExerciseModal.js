@@ -3,7 +3,7 @@ import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap'
 import ExerciseForm from './ExerciseForm';
 import AddExercise from './AddExercise';
 
-function ExerciseModal({ onSubmit, exerciseList, workoutList, cardId }) {
+function ExerciseModal({ onSubmit, exerciseList, workoutList, cardId, deleteExercise }) {
     const [modalOpen, setModalOpen] = useState(false);
 
     return (
@@ -17,7 +17,7 @@ function ExerciseModal({ onSubmit, exerciseList, workoutList, cardId }) {
                 </ModalHeader>
                 <ModalBody>
                     <ExerciseForm onSubmit={onSubmit} cardId={cardId} />
-                    <AddExercise exerciseList={exerciseList} cardId={cardId} onSubmit={onSubmit} />
+                    <AddExercise exerciseList={exerciseList} cardId={cardId} onSubmit={onSubmit} deleteExercise={deleteExercise} />
                 </ModalBody>
             </Modal>
         </>

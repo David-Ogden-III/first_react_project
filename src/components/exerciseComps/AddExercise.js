@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Col, Row, Button } from "reactstrap";
 import { Formik, Field, Form } from 'formik';
 
-const AddExercise = ({ exerciseList, cardId, onSubmit }) => {
+const AddExercise = ({ exerciseList, cardId, onSubmit, deleteExercise }) => {
     const [buttonFunction, setButtonFunction] = useState(true);
 
     const handleSubmit = (values, { resetForm }) => {
@@ -53,6 +53,18 @@ const AddExercise = ({ exerciseList, cardId, onSubmit }) => {
                                         >Edit
                                         </Button>
                                     </Col>
+                                            <Col>
+                                            <Button
+                                                size='sm'
+                                                type='button'
+                                                className='my-1'
+                                                color="danger"
+                                                onClick={() => deleteExercise(exercise.id)}
+                                            >
+
+                                                Delete
+                                            </Button>
+                                            </Col>
                                 </>
                                 :
                                 <>
